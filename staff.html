@@ -32,7 +32,14 @@
         <source src="" type="audio/mpeg">
         <embed height="0" width="0" src="">
       </audio>
-    </div>    
+    </div>
+    <div>
+      <form>
+        <label>如果想测试语音合成，请在下面框内输入你想测试的文字：</label><br/>
+        <input type="textarea" id="texttest"><br/>
+        <input type="button" value="点我读给你听" onclick="readtext();">
+      </form>
+    </div>
     <script type="text/javascript">
       function readme(){
         var lilist=document.getElementsByTagName("a");
@@ -53,6 +60,14 @@
         document.write("<embed height=\"0\" width=\"0\" src=\"http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text="+ strtext +"\">");
         document.write("</audio>");*/  	
       }
+      function readtext(){
+        var texttest=document.getElementsById("texttest"); //获取测试文本
+        var audioplayer=document.getElementById("audioplayer"); //获取播放器
+        var strtext=texttest.value;
+        strtext = encodeURI(strtext);
+        audioplayer.src="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text="+ strtext ;
+        audioplayer.play();
+       }
     </script>
   </body>
 </html>
