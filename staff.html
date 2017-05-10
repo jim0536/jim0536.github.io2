@@ -63,8 +63,7 @@
       function readtext(){
         var texttest=document.getElementById("texttest"); //获取测试文本
         var audioplayer=document.getElementById("audioplayer"); //获取播放器
-        var strtext=texttest.value;
-        alert(strtext);
+        var strtext="你输入的是："+texttest.value;
         strtext = encodeURI(strtext);
         audioplayer.src="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text="+ strtext ;
         audioplayer.play();
